@@ -4,8 +4,6 @@ from . import login_manager
 from datetime import datetime
 from flask_login import UserMixin,current_user
 
-
-
 class User(UserMixin,db.Model):
     __tablename__='users'
 
