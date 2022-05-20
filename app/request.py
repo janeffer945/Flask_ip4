@@ -4,7 +4,7 @@ from flask import request_finished
 
 
 def get_quotes():
-    response = request_finished.get('http://quotes.stormconsultancy.co.uk/random.json')
+    response = request_finished.get('http://quotes.stormconsultancy.co.uk/random')
     if response.status_code == 200:
         quote = response.json()
         # print(quote)

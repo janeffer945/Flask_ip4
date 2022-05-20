@@ -1,12 +1,15 @@
+
+
 from flask import Flask
 from flask_bootstrap import Bootstrap
+
 from flask_sqlalchemy import SQLAlchemy
-# from flask_sqlalchemy import SQLAlchemy
 
 from config import config_options
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_login import LoginManager
 from flask_mail import Mail
+
 
 
 bootstrap = Bootstrap()
@@ -15,7 +18,8 @@ login_manager = LoginManager()
 login_manager.session_protection = 'strong'
 login_manager.login_view = 'auth.login'
 mail = Mail()
-db=SQLAlchemy()
+
+
 
 photos = UploadSet('photos',IMAGES)
 def create_app(config_name):
@@ -24,8 +28,6 @@ def create_app(config_name):
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://unngmhyxqdcpof:cf5aba91662b39adcd3d243dc7f6f6d4181e015991b461884663213d86fea0f1@ec2-54-86-224-85.compute-1.amazonaws.com:5432/d4gb8tg40m1mie'
-
     # Initializing flask extensions
     bootstrap.init_app(app)
     db.init_app(app)
@@ -49,5 +51,6 @@ def create_app(config_name):
   
   
     return app
+
 
 
